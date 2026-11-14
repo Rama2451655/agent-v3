@@ -237,9 +237,10 @@ object VoicePrint {
         val mean = DoubleArray(DIM)
         val std = DoubleArray(DIM)
         for (f in flat) for (d in 0 until DIM) mean[d] += f[d]
-        for (d in 0 until DIM) mean[d] /= flat.size
+        val n = flat.size.toDouble()
+        for (d in 0 until DIM) { mean[d] = mean[d] / n }
         for (f in flat) for (d in 0 until DIM) { val v = f[d] - mean[d]; std[d] += v * v }
-        for (d in 0 until DIM) std[d] = sqrt(std[d] / flat.size) + 1e-6
+        for (d in 0 until DIM) std[d] = sqrt(std[d] / n) + 1e-6
 
         val norm = per.map { clip -> clip.map { f -> DoubleArray(DIM) { (f[it] - mean[it]) / std[it] } } }
 
