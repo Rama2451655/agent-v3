@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="acc_desc">Lets Riya press Send in WhatsApp, and wake the screen and enter the PIN you saved in the app when you ask it to unlock your phone by voice. Riya only acts on your spoken command.</string>
+</resources>
